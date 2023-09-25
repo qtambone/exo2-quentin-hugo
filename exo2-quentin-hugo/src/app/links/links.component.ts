@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./links.component.scss']
 })
 export class LinksComponent {
-  films : string[] = ['shrek', 'shrek', 'shrek', 'shrek', 'shrek']; // à modifier
+  films : string[] = ['shrek', 'mononoke', 'titeuf', '7', 'drive'];
   @Output() filmClique = new EventEmitter<string>();
 
   public afficherDetailsFilm(titre: string) {

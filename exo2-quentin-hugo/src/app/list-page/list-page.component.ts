@@ -11,6 +11,6 @@ export class ListPageComponent {
 
   afficherDetailsFilm(titre : string) {
     this.titreFilm = titre;
-    this.afficheFilm = `assets/${titre}.jpeg`;
+    this.afficheFilm = `assets/${titre}.jpg`;
   }
 }

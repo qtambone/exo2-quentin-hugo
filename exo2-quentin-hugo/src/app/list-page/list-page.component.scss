@@ -1,3 +1,17 @@
 .centered-details {
     text-align: center;
   }
+
+  .posterSize{
+    max-height: 60vh;
+    max-width: 35vw;
+  }
+
+  img{
+    transition: transform .1s;
+    }
+    img:hover{
+      -ms-transform: scale(1.05); /* IE 9 */
+      -webkit-transform: scale(1.05); /* Safari 3-8 */
+      transform: scale(1.05);
+      }
