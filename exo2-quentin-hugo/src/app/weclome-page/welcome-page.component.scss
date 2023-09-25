@@ -1,0 +1,31 @@
+.orange{
+    background-color: #f65314;
+  }
+  
+  .green{
+    background-color: #7CBB00;
+  }
+  
+  .blue{
+    background-color: #00A1F1;
+  }
+  
+  .yellow {
+    background-color: #FFBB00;
+  }
+
+  .white {
+    background-color: #FFBB00;
+  }
+
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Cela assure que l'élément prendra la hauteur totale de la vue */
+  }
+  
+  .centered img {
+    max-width: 100%;
+    max-height: 100%;
+  }

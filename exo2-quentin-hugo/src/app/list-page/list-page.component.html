@@ -1,0 +1,5 @@
+<app-links (filmClique)="afficherDetailsFilm($event)"></app-links>
+<div class="centered-details" *ngIf="titreFilm !== ''">
+  <h2 (click)="afficherDetailsFilm(titreFilm)">{{ titreFilm }}</h2>
+  <img [src]="afficheFilm" alt="Affiche du film">
+</div>

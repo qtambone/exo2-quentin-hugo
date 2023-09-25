@@ -12,7 +12,10 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { WelcomePageComponent } from './weclome-page/welcome-page.component';
+import { ImageComponent } from './image/image.component';
+import { ListPageComponent } from './list-page/list-page.component';
+import { LinksComponent } from './links/links.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { MainPageComponent } from './main-page/main-page.component';
     CardComponent,
     HeaderComponent,
     FooterComponent,
-    MainPageComponent
+    WelcomePageComponent,
+    ImageComponent,
+    ListPageComponent,
+    LinksComponent
   ],
   imports: [
     BrowserModule,
