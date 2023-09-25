@@ -1,0 +1,18 @@
+<a class="center">404 Error</a>
+
+<div>
+    <form>
+        <input type="text" [(ngModel)]='favoriteColor' name="favoriteColor">
+        <button type="submit" (click)="setValue()">setValue</button>
+        <p>{{favoriteColor}}</p>
+    </form>
+</div>  
+
+<div>
+    <form [formGroup]="profilForm">
+      <input type="text" formControlName="firstname">
+      <button type="submit" (click)="setValue()">setValue</button>
+      <p>{{ favoriteColor.value }}</p>
+    </form>
+  </div>
+  

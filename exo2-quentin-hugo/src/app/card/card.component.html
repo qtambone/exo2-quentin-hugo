@@ -1,0 +1,5 @@
+<body class="content" >
+    <div class="card-container">
+      <div *ngFor="let c of color" [ngClass]="c" id="card" (click)="addEvent(c)"></div>
+    </div>
+  </body>
