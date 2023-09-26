@@ -7,5 +7,11 @@
 
 img{
   border-radius: 50%;
+  transition: transform .1s;
+}
 
+img:hover{
+  -ms-transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25);
 }

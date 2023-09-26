@@ -8,7 +8,7 @@ import {FormControl, Validators} from "@angular/forms";
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent {
-  afficherEnfant: boolean = false;
+  estVisible: boolean | undefined;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
 }
