@@ -16,7 +16,12 @@ import { WelcomePageComponent } from './weclome-page/welcome-page.component';
 import { ImageComponent } from './image/image.component';
 import { ListPageComponent } from './list-page/list-page.component';
 import { LinksComponent } from './links/links.component';
-
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactComponent } from './contact/contact.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {NgIf} from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +31,22 @@ import { LinksComponent } from './links/links.component';
     WelcomePageComponent,
     ImageComponent,
     ListPageComponent,
+    ContactPageComponent,
     LinksComponent,
+    ContactComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    NgIf,
   ],
   providers: [],
   bootstrap: [AppComponent]
