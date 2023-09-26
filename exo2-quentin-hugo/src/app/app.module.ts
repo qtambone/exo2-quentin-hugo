@@ -26,7 +26,7 @@ import { LinksComponent } from './links/links.component';
     WelcomePageComponent,
     ImageComponent,
     ListPageComponent,
-    LinksComponent
+    LinksComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,5 +39,5 @@ import { LinksComponent } from './links/links.component';
   bootstrap: [AppComponent]
 })
 
-export class AppModule {  
+export class AppModule {
 }
