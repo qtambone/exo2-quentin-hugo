@@ -1,9 +1,12 @@
-<div class="centered-content">
-  <div *ngFor="let field of data">
-    <p>{{ field.label }}: {{ field.valueOf }}</p>
-  </div>
+<div class="centered-content" *ngIf="data">
+  <table>
+    <tr *ngFor="let field of data | keyvalue">
+      <td>{{ field.key }}</td>
+      <td>{{ field.value }}</td>
+    </tr>
+  </table>
 </div>
 
-<div class="centered-content">
+<div class="centered-content" *ngIf="!data">
   <p>404 Not Found</p>
 </div>

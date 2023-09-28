@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { FormDataService } from '../form-data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,12 +18,10 @@ export class FormulaireComponent {
     email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required]]
   });
+
   isFormSubmitted: boolean = false;
 
-
-  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {
-
-  }
+  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
 
   onSubmit() {
     console.log("ngSubmit formulaire.ts");
@@ -36,8 +33,7 @@ export class FormulaireComponent {
     } else {
       console.log("formulaire non valide")
         }
-}
-
+  }
   
   getErrorMessage(controlName: string) {
     const control = this.form.get(controlName);
