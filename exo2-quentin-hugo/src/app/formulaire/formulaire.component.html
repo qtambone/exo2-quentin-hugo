@@ -1,0 +1,13 @@
+<div class="example-container" *ngFor="let field of formFields">
+  <mat-form-field class="example-full-width">
+    <mat-label>{{ field.label }}</mat-label>
+    <input matInput [placeholder]="field.label" [formControl]="field.control" required>
+    <mat-error>{{ getErrorMessage(field.control) }}</mat-error>
+  </mat-form-field>
+</div>
+
+<button mat-raised-button class="submit-button" (click)="onSubmit()">Submit</button>
+
+<div *ngIf="isFormSubmitted" class="success-message">
+  Le formulaire a été soumis avec succès !
+</div>

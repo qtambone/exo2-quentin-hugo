@@ -1,26 +1,3 @@
-<div class="h-100 d-flex align-items-center justify-content-center">
-  <form class="example-form ">
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width">
-        <mat-label>Prenom</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width">
-        <mat-label>Nom</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-    </tr></table>
-    <label>
-      <input type="checkbox" [(ngModel)]="estVisible">
-      <app-contact *nfIf="estVisible"></app-contact>
-    </label>
-
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>zone de texte libre</mat-label>
-        <textarea matInput placeholder=""></textarea>
-      </mat-form-field>
-    </p>
-  </form>
-
+<div class="h-100 d-flex align-items-center justify-content-center text-center">
+  <app-formulaire></app-formulaire>
 </div>
