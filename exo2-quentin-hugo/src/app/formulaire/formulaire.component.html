@@ -1,12 +1,14 @@
-<div class="example-container" *ngFor="let field of formFields">
-  <mat-form-field class="example-full-width">
-    <mat-label>{{ field.label }}</mat-label>
-    <input matInput [placeholder]="field.label" [formControl]="field.control" required>
-    <mat-error>{{ getErrorMessage(field.control) }}</mat-error>
-  </mat-form-field>
-</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="example-container" *ngFor="let field of form.controls | keyvalue">
+    <mat-form-field class="example-full-width">
+      <mat-label>{{ field.key }}</mat-label>
+      <input matInput [formControlName]="field.key" required>
+      <mat-error>{{ getErrorMessage(field.key) }}</mat-error>
+    </mat-form-field>
+  </div>
 
-<button mat-raised-button class="submit-button" (click)="onSubmit()">Submit</button>
+  <button mat-raised-button class="submit-button" type="submit">Submit</button>
+</form>
 
 <div *ngIf="isFormSubmitted" class="success-message">
   Le formulaire a été soumis avec succès !

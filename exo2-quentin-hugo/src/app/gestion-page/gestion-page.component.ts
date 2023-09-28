@@ -18,7 +18,7 @@ export class GestionPageComponent implements OnInit {
     console.log("ngOnInit gestion-page.ts") ;
     console.log(this.formDataService);
 
-    this.data = this.formDataService.getLastFormData();
+    this.data = this.formDataService.formData;
     console.log(this.data) ; // il est vide ici
   }
 }

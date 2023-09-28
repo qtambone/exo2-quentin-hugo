@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { FormDataService } from '../form-data.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-formulaire',
@@ -9,43 +12,44 @@ import { FormDataService } from '../form-data.service';
 })
 
 export class FormulaireComponent {
-  formFields = [
-    { label: 'First Name', control: new FormControl('', [Validators.required]) },
-    { label: 'Last Name', control: new FormControl('', [Validators.required]) },
-    { label: 'Age', control: new FormControl('', [Validators.required, Validators.min(1)]) },
-    { label: 'Email', control: new FormControl('', [Validators.required, Validators.email]) },
-    { label: 'Comment', control: new FormControl('', [Validators.required]) }
-  ];
-
+  form: FormGroup = this.fb.group({
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    age: ['', [Validators.required, Validators.min(1)]],
+    email: ['', [Validators.required, Validators.email]],
+    comment: ['', [Validators.required]]
+  });
   isFormSubmitted: boolean = false;
 
-  constructor(private formDataService: FormDataService) {
-    console.log("verification du service partagé : formulaire.ts");
-    console.log(this.formDataService);  
-   }
+
+  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {
+
+  }
 
   onSubmit() {
-    console.log("ngSubmit formulaire.ts") ;
-    const formData = this.formFields.map(field => ({ label: field.label, value: field.control.value }));
+    console.log("ngSubmit formulaire.ts");
+    if (this.form.valid) {
+        this.formDataService.setFormData(this.form.value);
+        this.isFormSubmitted = true;
+        this.router.navigateByUrl("/welcome-page");
+        console.log(this.formDataService);
+    } else {
+      console.log("formulaire non valide")
+        }
+}
 
-    this.formDataService.setFormData(formData);
-    this.isFormSubmitted = true ;
-    console.log(this.formDataService);  
-  }
   
-  getErrorMessage(control: FormControl) {
-    if (control.hasError('required')) {
+  getErrorMessage(controlName: string) {
+    const control = this.form.get(controlName);
+    if (control?.hasError('required')) {
       return 'You must enter a value';
     }
-
-    if (control.hasError('email')) {
+    if (control?.hasError('email')) {
       return 'Not a valid email';
     }
-
-    if (control.hasError('min')) {
+    if (control?.hasError('min')) {
       return 'Age must be greater than 0';
     }
-
     return '';
   }
 }

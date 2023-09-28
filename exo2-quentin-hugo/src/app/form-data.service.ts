@@ -4,17 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormDataService { //mon service est reset à chaque changement refresh ou changement d'url
-  private formData: any[] = [];
+  public formData: any ;
 
-  setFormData(data: any[]) {
+  setFormData(data: any) {
     this.formData = data;
     console.log("setFormData form-data.service.ts") ;
-    console.log(this.formData.length) ;
+    console.log(this.formData) ;
   }
 
   getLastFormData() {
     console.log("getLastFormData form-data.service.ts") ;
-    console.log(this.formData.length) ;
+    console.log(this.formData) ;
     return this.formData ;
   }
 }
