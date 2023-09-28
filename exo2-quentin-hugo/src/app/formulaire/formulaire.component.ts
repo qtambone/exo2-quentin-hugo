@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormDataService } from '../form-data.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,10 +14,11 @@ export class FormulaireComponent {
   form: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
-    age: ['', [Validators.required, Validators.min(1)]],
+    age: ['', [Validators.required, Validators.min(1), this.validateAge.bind(this)]], 
     email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required]]
   });
+  
 
   isFormSubmitted: boolean = false;
 
@@ -46,7 +47,20 @@ export class FormulaireComponent {
     if (control?.hasError('min')) {
       return 'Age must be greater than 0';
     }
+    if (control?.hasError('invalidAge')) {
+      return 'Age must be a number';
+    }
     return '';
+  }
+
+  validateAge(control: FormControl): {invalidAge: boolean} | null {
+    const age = parseInt(control.value, 10);
+  
+    if (isNaN(age) || age % 1 !== 0 || age < 1) {
+      return { 'invalidAge': true };
+    }
+  
+    return null;
   }
 }
 
