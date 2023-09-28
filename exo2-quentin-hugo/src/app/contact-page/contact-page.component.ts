@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
 
 
 @Component({
@@ -8,8 +7,5 @@ import {FormControl, Validators} from "@angular/forms";
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent {
-  estVisible: boolean | undefined;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
 }
 

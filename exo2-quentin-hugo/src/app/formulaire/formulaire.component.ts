@@ -21,14 +21,20 @@ export class FormulaireComponent {
 
 
   isFormSubmitted: boolean = false;
-  hide : boolean = false;
+  hide : boolean = true;
 
   onCheckboxChange(event: any) {
+    console.log(event.target.checked)
     const isChecked = event.target.checked;
     if (isChecked) {
+      //this.form.get('email')?.setValue("test@test");
       this.hide = true;
+      this.form.get('email')?.setValidators([Validators.required, Validators.email])
+      this.form.get('email')?.updateValueAndValidity();
     } else {
       this.hide = false
+      this.form.get('email')?.setValidators([])
+      this.form.get('email')?.updateValueAndValidity();
     }
   }
   constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
