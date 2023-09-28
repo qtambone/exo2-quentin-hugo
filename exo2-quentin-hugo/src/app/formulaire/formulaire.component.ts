@@ -14,7 +14,7 @@ export class FormulaireComponent {
   form: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
-    age: ['', [Validators.required, Validators.min(1), this.validateAge.bind(this)]], 
+    age: ['', [Validators.required, Validators.min(1)]], 
     email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required]]
   });
@@ -25,7 +25,6 @@ export class FormulaireComponent {
   constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
 
   onSubmit() {
-    console.log("ngSubmit formulaire.ts");
     if (this.form.valid) {
         this.formDataService.setFormData(this.form.value);
         this.isFormSubmitted = true;
@@ -51,16 +50,6 @@ export class FormulaireComponent {
       return 'Age must be a number';
     }
     return '';
-  }
-
-  validateAge(control: FormControl): {invalidAge: boolean} | null {
-    const age = parseInt(control.value, 10);
-  
-    if (isNaN(age) || age % 1 !== 0 || age < 1) {
-      return { 'invalidAge': true };
-    }
-  
-    return null;
   }
 }
 
