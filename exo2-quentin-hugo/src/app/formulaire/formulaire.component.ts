@@ -14,14 +14,23 @@ export class FormulaireComponent {
   form: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
-    age: ['', [Validators.required, Validators.min(1)]], 
+    age: ['', [Validators.required, Validators.min(1)]],
     email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required]]
   });
-  
+
 
   isFormSubmitted: boolean = false;
+  hide : boolean = false;
 
+  onCheckboxChange(event: any) {
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      this.hide = true;
+    } else {
+      this.hide = false
+    }
+  }
   constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
 
   onSubmit() {
@@ -34,7 +43,7 @@ export class FormulaireComponent {
       console.log("formulaire non valide")
         }
   }
-  
+
   getErrorMessage(controlName: string) {
     const control = this.form.get(controlName);
     if (control?.hasError('required')) {
@@ -50,6 +59,10 @@ export class FormulaireComponent {
       return 'Age must be a number';
     }
     return '';
+  }
+
+  isSubmitButtonDisabled(){
+    return !this.form.valid;
   }
 }
 
