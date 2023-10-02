@@ -24,7 +24,12 @@
     font-weight: bold; /* Applique une mise en forme différente à la première colonne */
   }
   
-  th, td {
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    text-align: center; /* Pour centrer le texte dans les cellules d'en-tête */
     border-bottom: 1px solid #ddd;
   }
   

@@ -1,13 +1,17 @@
 <div class="centered-content table-responsive-sm" *ngIf="data">
-  <table class="table table-hover table-striped table-light w-25 ">
+  <table class="table table-hover table-striped table-light w-25">
+    <thead>
+      <tr><th colspan="2">Dernier formulaire envoyé</th></tr>
+    </thead>
     <tbody>
-    <tr *ngFor="let field of data | keyvalue" >
-      <td > <p class="text-center">{{ field.key }} </p></td>
-      <td> <p class="text-center">{{ field.value }}</p></td>
-    </tr>
+      <tr *ngFor="let field of data | keyvalue">
+        <td><p class="text-center">{{ field.key }}</p></td>
+        <td><p class="text-center">{{ field.value }}</p></td>
+      </tr>
     </tbody>
   </table>
 </div>
+
 
 <div class="centered-content" *ngIf="!data">
   <p>404 Not Found</p>
