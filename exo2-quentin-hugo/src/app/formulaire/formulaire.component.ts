@@ -15,16 +15,15 @@ export class FormulaireComponent {
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     age: ['', [Validators.required, Validators.min(1)]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', []],
     comment: ['', [Validators.required]]
   });
 
 
   isFormSubmitted: boolean = false;
-  hide : boolean = true;
+  hide : boolean | undefined;
 
   onCheckboxChange(event: any) {
-    console.log(event.target.checked)
     const isChecked = event.target.checked;
     if (isChecked) {
       //this.form.get('email')?.setValue("test@test");
@@ -44,9 +43,7 @@ export class FormulaireComponent {
         this.formDataService.setFormData(this.form.value);
         this.isFormSubmitted = true;
         this.router.navigateByUrl("/welcome-page");
-        console.log(this.formDataService);
     } else {
-      console.log("formulaire non valide")
         }
   }
 

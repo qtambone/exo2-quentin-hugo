@@ -1,8 +1,8 @@
-<div class="centered-content table-responsive-sm" *ngIf="data">
+
+<div class="centered-content ">
+  <H2 class="text-center">Dernier formulaire envoyé</H2>
+  <div class="table-responsive-sm" *ngIf="data">
   <table class="table table-hover table-striped table-light w-25">
-    <thead>
-      <tr><th colspan="2">Dernier formulaire envoyé</th></tr>
-    </thead>
     <tbody>
       <tr *ngFor="let field of data | keyvalue">
         <td><p class="text-center">{{ field.key }}</p></td>
@@ -10,6 +10,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 
 
