@@ -12,29 +12,26 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 export class FormulaireComponent {
   constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
-  
+
   form: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     age: ['', [Validators.required, Validators.min(1)]],
-    email: ['', []],
+    email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required]]
   });
 
   isFormSubmitted : boolean = false;
   hide : boolean = false;
 
-  onCheckboxChange(event: any) {
-    const isChecked = event.target.checked;
-    if (isChecked) {
-      this.hide = true;
-      this.form.get('email')?.setValidators([Validators.required, Validators.email])
-      this.form.get('email')?.updateValueAndValidity(); 
-    } else {
-      this.hide = false;
+  onCheckboxChange() {
+    this.hide = !this.hide;
+    if (this.hide == true) {
       this.form.get('email')?.setValidators([])
-      this.form.get('email')?.updateValueAndValidity();
+    }else{
+      this.form.get('email')?.setValidators([Validators.required, Validators.email])
     }
+    this.form.get('email')?.updateValueAndValidity();
   }
 
   onSubmit() {
@@ -42,8 +39,7 @@ export class FormulaireComponent {
         this.formDataService.setFormData(this.form.value);
         this.isFormSubmitted = true;
         this.router.navigateByUrl("/welcome-page");
-    } else {
-        }
+    }
   }
 
   getErrorMessage(controlName: string) {
