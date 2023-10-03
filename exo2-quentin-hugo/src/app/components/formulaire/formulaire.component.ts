@@ -24,15 +24,15 @@ export class FormulaireComponent {
   isFormSubmitted : boolean = false;
   hide : boolean = false;
 
-  onCheckboxChange() {
-    this.hide = !this.hide;
-    if (this.hide == true) {
-      this.form.get('email')?.setValidators([])
-    }else{
-      this.form.get('email')?.setValidators([Validators.required, Validators.email])
+    onCheckboxChange() {
+      this.hide = !this.hide;
+      if (this.hide == true) {
+        this.form.get('email')?.setValidators([])
+      }else{
+        this.form.get('email')?.setValidators([Validators.required, Validators.email])
+      }
+      this.form.get('email')?.updateValueAndValidity();
     }
-    this.form.get('email')?.updateValueAndValidity();
-  }
 
   onSubmit() {
     if (this.form.valid) {
