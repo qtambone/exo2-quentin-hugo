@@ -1,0 +1,24 @@
+/* Alignement des champs et ajout d'une marge en bas */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* Définition de la largeur des champs */
+.example-container mat-form-field,
+.example-full-width {
+  width: 100%;
+}
+
+/* Marge en bas pour les champs */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.success-message {
+  color: green;
+  font-size: 18px;
+  margin-top: 10px; /* Espace entre le message et le formulaire */
+}

@@ -1,0 +1,32 @@
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid #ddd;
+  }
+  
+  tr {
+    border: 1px solid #ddd;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td:nth-child(odd) {
+    font-weight: bold;
+  }
+
+  th {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  

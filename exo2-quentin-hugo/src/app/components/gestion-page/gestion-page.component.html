@@ -1,0 +1,16 @@
+
+<div class=" flex-column centered-content table-responsive-sm" *ngIf="data">
+  <H2 class="text-center">Dernier formulaire envoyé</H2>
+  <table class="table table-hover table-striped table-light w-25">
+    <tbody>
+      <tr *ngFor="let field of data | keyvalue">
+        <td><p class="text-center">{{ field.key }}</p></td>
+        <td><p class="text-center">{{ field.value }}</p></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+<div class="centered-content" *ngIf="!data">
+  <p>404 Not Found</p>
+</div>

@@ -1,0 +1,59 @@
+<h2>Formulaire de contact</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" required>
+          <mat-error>{{ getErrorMessage('firstName') }}</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" required>
+          <mat-error>{{ getErrorMessage('lastName') }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <label>
+          <input type="checkbox" (change)="onCheckboxChange()">
+          hide Email
+        </label>
+      </td>
+      <td>
+        <mat-form-field *ngIf="!hide" class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+          <mat-error>{{ getErrorMessage('email') }}</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age" required>
+          <mat-error>{{ getErrorMessage('age') }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Comment</mat-label>
+    <textarea matInput formControlName="comment" rows="5" cols="40" required></textarea>
+    <mat-error>{{ getErrorMessage('comment') }}</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button class="btn btn-primary submit-button" color="primary" [disabled]="isSubmitButtonDisabled()"
+    type="submit">Submit</button>
+</form>
+
+<div *ngIf="isFormSubmitted" class="success-message">
+  Formulaire envoyé avec succès !
+</div>
