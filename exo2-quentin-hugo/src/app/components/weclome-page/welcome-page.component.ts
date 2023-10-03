@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class WelcomePageComponent {
   public title : string = 'QuentinHugoTP1';
-  public newBackgroundColor : string = '';
-  public colors : string[] = ['orange','green', 'blue','yellow'];
-  
-  public changeBackground(color : string){
-    this.newBackgroundColor = color;
-  }
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Page404Component } from './page404/page404.component';
-import { WelcomePageComponent } from './weclome-page/welcome-page.component';
-import { ListPageComponent } from './list-page/list-page.component';
-import {ContactPageComponent} from "./contact-page/contact-page.component";
-import { FormulaireComponent } from './formulaire/formulaire.component';
-import { GestionPageComponent } from './gestion-page/gestion-page.component';
+import { Page404Component } from './components/page404/page404.component';
+import { WelcomePageComponent } from './components/weclome-page/welcome-page.component';
+import { ListPageComponent } from './components/list-page/list-page.component';
+import {ContactPageComponent} from "./components/contact-page/contact-page.component";
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
+import { GestionPageComponent } from './components/gestion-page/gestion-page.component';
 
 const routes: Routes = [
   { path : 'welcome-page', component : WelcomePageComponent},

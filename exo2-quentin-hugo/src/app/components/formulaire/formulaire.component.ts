@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormDataService } from '../form-data.service';
+import { FormDataService } from '../../service/form-data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -11,6 +11,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class FormulaireComponent {
+  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
+  
   form: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
@@ -19,24 +21,21 @@ export class FormulaireComponent {
     comment: ['', [Validators.required]]
   });
 
-
-  isFormSubmitted: boolean = false;
-  hide : boolean | undefined;
+  isFormSubmitted : boolean = false;
+  hide : boolean = false;
 
   onCheckboxChange(event: any) {
     const isChecked = event.target.checked;
     if (isChecked) {
-      //this.form.get('email')?.setValue("test@test");
       this.hide = true;
       this.form.get('email')?.setValidators([Validators.required, Validators.email])
-      this.form.get('email')?.updateValueAndValidity();
+      this.form.get('email')?.updateValueAndValidity(); 
     } else {
-      this.hide = false
+      this.hide = false;
       this.form.get('email')?.setValidators([])
       this.form.get('email')?.updateValueAndValidity();
     }
   }
-  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {}
 
   onSubmit() {
     if (this.form.valid) {

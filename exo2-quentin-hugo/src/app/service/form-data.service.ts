@@ -6,7 +6,7 @@ import { User } from '../model/user.model';
   providedIn: 'root'
 })
 export class FormDataService { 
-  private formData: User | null = null; 
+  private formData: User | null = null;
 
   setFormData(data: User) {
     this.formData = data;

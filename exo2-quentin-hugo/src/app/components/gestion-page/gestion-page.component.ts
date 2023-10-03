@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormDataService } from '../form-data.service';
-import { User } from '../user.model';
+import { FormDataService } from '../../service/form-data.service';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-gestion-page',
@@ -9,7 +9,7 @@ import { User } from '../user.model';
 })
 
 export class GestionPageComponent implements OnInit {
-  data: User | null = null;;
+  data : User | null = null;
 
   constructor(private formDataService: FormDataService) {}
 
